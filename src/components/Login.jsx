@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../contexts/UserContext';
 import './Login.css';
 
-function Login({ setUser }) {
+function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const {setUser} = useContext(UserContext);
 
     function doLogin(e) {
         e.preventDefault();
@@ -19,6 +22,7 @@ function Login({ setUser }) {
 
     return (
         <form className="loginform" onSubmit={doLogin}>
+            
             <input
                 type="text"
                 placeholder="E-mail"
